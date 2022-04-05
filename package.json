@@ -1,0 +1,47 @@
+{
+  "name": "stone-challenge",
+  "version": "1.0.0",
+  "description": "Backend challenge for Stone company",
+  "author": "Guilherme Beidaki Peres",
+  "license": "MIT",
+  "scripts": {
+    "start:local:dev": "SLS_DEBUG=* sls offline start --stage dev",
+    "start:local:prod": "SLS_DEBUG=* sls offline start --stage prod",
+    "build": "rimraf .serverless && serverless package",
+    "test": "rimraf coverage && jest --coverage",
+    "lint": "eslint src/**/*.ts",
+    "deploy:dev": "serverless deploy --stage dev",
+    "deploy:prod": "serverless deploy --stage prod",
+    "remove:dev": "serverless remove --stage dev",
+    "remove:prod": "serverless remove --stage prod"
+  },
+  "dependencies": {
+    "aws-lambda": "^1.0.7",
+    "class-transformer": "^0.5.1",
+    "class-validator": "^0.13.2",
+    "jsonwebtoken": "^8.5.1",
+    "pino": "^7.9.2",
+    "reflect-metadata": "^0.1.13"
+  },
+  "devDependencies": {
+    "@types/aws-lambda": "^8.10.93",
+    "@types/jest": "^27.4.1",
+    "@types/jsonwebtoken": "^8.5.8",
+    "@types/node": "^17.0.23",
+    "@typescript-eslint/eslint-plugin": "^5.18.0",
+    "@typescript-eslint/parser": "^5.18.0",
+    "eslint": "^8.12.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "^2.25.4",
+    "eslint-plugin-prettier": "^4.0.0",
+    "jest": "^27.5.1",
+    "prettier": "^2.6.2",
+    "rimraf": "^3.0.2",
+    "serverless": "^3.11.0",
+    "serverless-offline": "^8.5.0",
+    "serverless-plugin-typescript": "^2.1.2",
+    "ts-jest": "^27.1.4",
+    "typescript": "^4.6.3"
+  }
+}

@@ -1,0 +1,12 @@
+# package directories
+node_modules/
+
+# Serverless directories
+.serverless/
+.build/
+
+# Build directories
+dist/
+
+# Test outputs
+coverage/

@@ -1,0 +1,26 @@
+service: stone-challenge
+provider:
+  name: aws
+  runtime: nodejs14.x
+  stage: ${opt:stage, 'dev'}
+
+  environment:
+    NODE_ENV: "${self:provider.stage}"
+    SERVICE: "${self:service}"
+    MONGODB_URI: "mongodb://localhost:27017/stone"
+
+plugins:
+  - serverless-plugin-typescript
+  - serverless-offline
+
+package:
+  excludeDevDependencies: true
+
+functions:
+  handler:
+    handler: src/index.handler
+    events:
+      - http:
+          path: /
+          method: get
+          cors: true
