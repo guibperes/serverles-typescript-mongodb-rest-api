@@ -7,7 +7,8 @@ provider:
   environment:
     NODE_ENV: "${self:provider.stage}"
     SERVICE: "${self:service}"
-    MONGODB_URI: "mongodb://localhost:27017/stone"
+    MONGODB_URI: "mongodb://localhost:27017"
+    MONGODB_DATABASE: "stone"
 
 plugins:
   - serverless-plugin-typescript

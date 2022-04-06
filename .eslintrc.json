@@ -23,6 +23,7 @@
     "radix": "off",
     "lines-between-class-members": "off",
     "class-methods-use-this": "off",
-    "camelcase": "off"
+    "camelcase": "off",
+    "no-underscore-dangle": "off"
   }
 }
