@@ -5,7 +5,7 @@ const CORS_HEADERS = {
   "Access-Control-Allow-Credentials": true,
 };
 
-interface Response {
+export interface Response {
   statusCode: number;
   body: any;
   headers?: Record<string, any>;
