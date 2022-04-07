@@ -7,7 +7,7 @@ const CORS_HEADERS = {
 
 interface Response {
   statusCode: number;
-  body: object;
+  body: any;
   headers?: Record<string, any>;
   sendCORS?: boolean;
 }
