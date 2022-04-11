@@ -1,10 +1,14 @@
 /* eslint-disable no-useless-constructor */
 /* eslint-disable no-empty-function */
 import { APIGatewayProxyEvent } from "aws-lambda";
+import { Db } from "mongodb";
 
 import { Response } from "./http";
 
-export type RouteHandler = (event: APIGatewayProxyEvent) => Promise<Response>;
+export type RouteHandler = (
+  event: APIGatewayProxyEvent,
+  database: Db,
+) => Promise<Response>;
 
 export interface Route {
   method: string;
