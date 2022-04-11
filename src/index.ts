@@ -18,11 +18,8 @@ export const handler: APIGatewayProxyHandler = async event => {
   const database = getDatabase(connection, env.MONGODB_DATABASE);
   const route = routes.getRoute(event.httpMethod, event.path);
 
-  const { statusCode, body, headers, sendCORS } = await route.handler(
-    event,
-    database,
-  );
+  const response = await route.handler(event, database);
 
   await disconnect(connection);
-  return http.response({ statusCode, body, headers, sendCORS });
+  return response;
 };
