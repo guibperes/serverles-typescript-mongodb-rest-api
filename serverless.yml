@@ -32,3 +32,11 @@ functions:
           path: /counter
           method: get
           cors: true
+      - http:
+          path: /users
+          method: post
+          cors: true
+      - http:
+          path: /users/{id}
+          method: get
+          cors: true

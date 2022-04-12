@@ -1,6 +1,11 @@
-import { Collection, Db } from "mongodb";
+import { Collection, Db, ObjectId } from "mongodb";
 
 import { createObjectId } from "./utils";
+
+export interface RepositoryWriteOp {
+  acknowledged: boolean;
+  id: string;
+}
 
 export abstract class BaseRepository<ENTITY> {
   readonly _collection: Collection;
@@ -9,10 +14,12 @@ export abstract class BaseRepository<ENTITY> {
     this._collection = database.collection(collectionName);
   }
 
-  async create(entity: ENTITY): Promise<boolean> {
-    const result = await this._collection.insertOne(entity);
+  async create(entity: ENTITY): Promise<RepositoryWriteOp> {
+    const { acknowledged, insertedId } = await this._collection.insertOne(
+      entity,
+    );
 
-    return result.acknowledged;
+    return { acknowledged, id: insertedId.toString() };
   }
 
   async updateById(
@@ -39,7 +46,7 @@ export abstract class BaseRepository<ENTITY> {
     return this._collection.find<ENTITY>({}).toArray();
   }
 
-  async findById(id: string): Promise<ENTITY> {
-    return this._collection.findOne<ENTITY>({ _id: createObjectId(id) });
+  async findById(id: ObjectId): Promise<ENTITY> {
+    return this._collection.findOne<ENTITY>({ _id: id });
   }
 }

@@ -1,0 +1,11 @@
+POST http://localhost:3000/dev/users HTTP/1.1
+Content-Type: application/json
+
+{
+  "email": "gui@test.com",
+  "name": "Guilherme"
+}
+###
+
+GET http://localhost:3000/dev/users/62559ab805a862a65533bbd7 HTTP/1.1
+###
