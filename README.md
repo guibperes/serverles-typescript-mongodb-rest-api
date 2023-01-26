@@ -1,1 +1,1 @@
-# stone-challenge
+# Serverless Typescript MongoDB REST API
